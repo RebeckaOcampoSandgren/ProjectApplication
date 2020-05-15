@@ -12,5 +12,5 @@
         android:id="@+id/page_about"
         android:orderInCategory="100"
         android:title="@string/page_about"
-        app:showAsAction="never" />
+         />
 </menu>
