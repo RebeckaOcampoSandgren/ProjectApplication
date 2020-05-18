@@ -1,6 +1,5 @@
 package com.example.projectapplication;
 
-import androidx.annotation.NonNull;
 
 public class Building {
 
