@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (id == R.id.page_about){
             Intent intent = new Intent(MainActivity.this, activity_about.class);
-            intent.putExtra("name", "Rebecka");
             startActivity(intent);
         }
 
