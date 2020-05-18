@@ -7,6 +7,12 @@ public class Building {
     private String location;
     private int height;
 
+    public Building(String name, String location, int height){
+        this.name = name;
+        this.location = location;
+        this.height = height;
+    }
+
     public String getName(){
         return name;
     }

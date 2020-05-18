@@ -17,6 +17,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.ArrayAdapter;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,8 +30,12 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    ArrayList<Building> buildings;
+    ArrayAdapter<Building> adapter;
 
     @SuppressLint("StaticFieldLeak")
     private class JsonTask extends AsyncTask<String, String, String> {
@@ -70,7 +79,21 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String json) {
-            Log.d("TAG", json);
+            try {
+                buildings.clear();
+                JSONArray jsonArray = new JSONArray(json);
+                for (int i = 0; i < jsonArray.length(); i++){
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    String name = jsonObject.getString("name");
+                    String location = jsonObject.getString("location");
+                    int height = jsonObject.getInt("size");
+                    Building building = new Building(name, location, height);
+                    buildings.add(building);
+                }
+                adapter.notifyDataSetChanged();
+            } catch (JSONException e) {
+                Log.e("tag","E:"+e.getMessage());
+            }
         }
     }
 
