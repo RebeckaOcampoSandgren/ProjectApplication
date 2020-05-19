@@ -19,8 +19,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -115,6 +117,15 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.my_ListView);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                String buildingInfo = buildings.get(i).getName() + " är " + buildings.get(i).getHeight() + " meter högt och finns i " + buildings.get(i).getLocation() + ".";
+                Snackbar snackbar = Snackbar.make(view, buildingInfo, Snackbar.LENGTH_LONG);
+                snackbar.show();
+            }
+        });
 
         new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=a19rebsa");
 
