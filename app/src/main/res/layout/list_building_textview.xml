@@ -2,6 +2,9 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/building_item">
+    android:id="@+id/building_item"
+    android:textSize="18sp"
+    android:typeface="serif"
+    android:textColor="#4b6082">
 
 </TextView>

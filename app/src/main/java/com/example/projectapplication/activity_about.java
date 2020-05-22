@@ -11,6 +11,7 @@ public class activity_about extends AppCompatActivity {
     private WebView myWebView;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +20,9 @@ public class activity_about extends AppCompatActivity {
         this.myWebView = (WebView) findViewById(R.id.my_webview);
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
+        myWebView.getSettings().setLoadWithOverviewMode(true);
+        myWebView.getSettings().setUseWideViewPort(true);
 
         this.myWebView.loadUrl("file:///android_asset/about.html");
     }
