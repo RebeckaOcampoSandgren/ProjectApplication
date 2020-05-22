@@ -36,6 +36,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -114,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
         buildings = new ArrayList<>();
         adapter = new ArrayAdapter<>(this, R.layout.list_building_textview, buildings);
+
 
         ListView listView = findViewById(R.id.my_ListView);
         listView.setAdapter(adapter);
