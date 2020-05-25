@@ -10,8 +10,6 @@ public class activity_about extends AppCompatActivity {
 
     private WebView myWebView;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
